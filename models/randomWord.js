@@ -8,8 +8,6 @@ function randomWordGen(){
   }
 
   var theChosenOne = words[randomNum(0, words.length)];
-  // var theChosenOne = 'look';
-  console.log(theChosenOne);
   return theChosenOne;
 }
 
@@ -18,9 +16,6 @@ var generatedWord = randomWordGen();
 function randomWordtoArray(theChosenOne){
   let theChosenArray = theChosenOne.split('');
   console.log(theChosenArray);
-  var theChosenArrayMod = theChosenArray;
-  console.log(theChosenArrayMod)
-
   return theChosenArray;
 }
 

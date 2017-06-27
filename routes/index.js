@@ -8,6 +8,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 let userGuesses = [];
 
+let attemptsAllowed = 8
+
 router.get('/', function(req, res){
   res.render('index', {
     title: 'Guess my game',
@@ -15,7 +17,7 @@ router.get('/', function(req, res){
     userGuesses: userGuesses,
     dashes: randomWord.dashes,
     userWrongGuesses: parseGuess.userWrongGuesses,
-    count: parseGuess.count,
+    count: attemptsAllowed - parseGuess.userWrongGuesses.length,
   });
 })
 
@@ -23,9 +25,7 @@ router.post('/', function(req, res){
   var userGuess = req.body.guess;
   parseGuess.parseGuess(randomWord.generatedWord, userGuess, parseGuess.count);
 
-  // winCondition(parseGuess.count, parseGuess.winArray);
-  // console.log('the count is', parseGuess.count);
-  if(parseGuess.count === 0){
+  if(parseGuess.userWrongGuesses.length === attemptsAllowed){
     return res.redirect('/lost');
   } else if (parseGuess.winArray.length === randomWord.generatedWordArray.length){
     return res.redirect('/win')
@@ -33,6 +33,8 @@ router.post('/', function(req, res){
     userGuesses.push(userGuess);
     return res.redirect('/');
   }
+
+
 })
 
 router.get('/lost', function(req, res){
