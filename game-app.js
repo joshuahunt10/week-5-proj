@@ -15,6 +15,7 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const indexRoutes = require('./routes/index')
+
 app.use('/', indexRoutes);
 
 

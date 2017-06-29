@@ -8,6 +8,7 @@ function randomWordGen(){
   }
 
   var theChosenOne = words[randomNum(0, words.length)];
+  console.log(theChosenOne);
   return theChosenOne;
 }
 
@@ -15,7 +16,6 @@ var generatedWord = randomWordGen();
 
 function randomWordtoArray(theChosenOne){
   let theChosenArray = theChosenOne.split('');
-  console.log(theChosenArray);
   return theChosenArray;
 }
 
@@ -27,8 +27,6 @@ var dashes = [];
 for(let i = 0; i < generatedWordArray.length; i++){
   dashes.push(' _ ');
 }
-
-console.log(dashes);
 
 module.exports = {
   generatedWord: generatedWord,

@@ -3,26 +3,35 @@
   <head>
     <meta charset="utf-8">
     <title>{{title}}</title>
+    <link rel="stylesheet" href="/css/master.css">
   </head>
   <body>
-    <h1>Guessing Game</h1>
-    <p>{{theWord}}</p>
-    {{#dashes}}
-    <span>{{.}}</span>
-    {{/dashes}}
-    <br><form class="" action="/" method="post">
-      <input type="text" name="guess" value="">
-      <button type="submit" name="button">Is this in it?</button>
-    </form>
-    <h2>You guessed:</h2>
-    {{#userGuesses}}
-    <span>{{.}}, </span>
-    {{/userGuesses}}
-    <h2>Number of guesses left: {{count}}</h2>
-    <h2>These were wrong:</h2>
-    {{#userWrongGuesses}}
-    <span>{{.}}</span>
-    {{/userWrongGuesses}}
+    <div class="body_wrapper">
+      <h1>Guessing Game</h1>
+      {{#errors}}
+      <ul>
+        <li>{{msg}}</li>
+      </ul>
+      {{/errors}}
+      <!-- <p>{{theWord}}</p><br /> -->
+      {{#dashes}}
+      <span>{{.}}</span>
+      {{/dashes}}
+      <br><form class="" action="/" method="post">
+        <br /><input type="text" name="guess" value="" autofocus>
+        <button type="submit" name="button">Is this in it?</button>
+      </form>
+      <h2>You guessed:
+      {{#userGuesses}}
+       {{.}},
+      {{/userGuesses}}</h2>
+      <h2>Number of guesses left: {{count}}</h2>
+        <h2>These were wrong:
+      {{#userWrongGuesses}}
+        {{.}}
+      {{/userWrongGuesses}}
+      </h2>
+    </div
   </body>
 
 </html>

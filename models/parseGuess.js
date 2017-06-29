@@ -1,5 +1,4 @@
 var theChosenArray = require('./randomWord')
-
 let userWrongGuesses = [];
 let count = 2;
 let winArray = [];
